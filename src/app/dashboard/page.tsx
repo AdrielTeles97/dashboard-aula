@@ -1,28 +1,16 @@
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "../api/auth/[...nextauth]/route"; // Certifique-se de que o caminho esteja correto
+import { getServerSession } from "next-auth/next"; // Certifique-se de que o caminho esteja correto
 import { SalesChart } from "@/components/chart";
 import { Sales } from "@/components/sales";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { BadgeDollarSign, DollarSign, Percent, User2 } from "lucide-react";
 
 export default async function Dashboard() {
-    // Obtém a sessão do servidor
-    const session = await getServerSession(authOptions);
-
-    if (!session) {
-        // Se não estiver autenticado, redireciona para a página de login
-        return (
-            <div>
-                <p>Você precisa estar logado para ver esta página.</p>
-            </div>
-        );
-    }
 
     return (
         <>
             <main className="sm:ml-14 p-4">
                 <section className="mb-4">
-                    <h2 className="text-2xl font-bold">Bem-vindo, {session.user?.email}!</h2>
+                    <h2 className="text-2xl font-bold">Bem-vindo</h2>
                 </section>
                 <section className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                     <Card>
